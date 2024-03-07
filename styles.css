@@ -1,0 +1,316 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    width: 90%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+#coin-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+/* Coin item styling */
+.coin-item {
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    position: relative;
+}
+
+.coin-item h2 {
+    margin: 0;
+    font-size: 40px; /* Adjust the font size as desired */
+}
+
+.coin-item p {
+    margin: 5px 0;
+    font-size: 30px; /* Adjust the font size as desired */
+}
+
+.coin-item .more-info-btn {
+    background-color: #0b7fe4;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Adjust the font size as desired */
+}
+
+.coin-item .toggle-btn {
+    width: 50px;
+    height: 25px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 12.5px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.coin-item .toggle-btn::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.2s ease;
+}
+
+.coin-item .toggle-btn.active::before {
+    transform: translateX(25px);
+}
+
+.coin-item .toggle-btn.active {
+    background-color: #0b7fe4;
+}
+
+.collapsible {
+    display: block;
+}
+
+.collapsible.collapsed {
+    display: none;
+}
+
+.progress-bar-container {
+    display: none;
+
+    .progress-bar {
+        width: 0;
+    }
+}
+
+.progress-bar-container.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+
+    .loading-bar {
+        display: flex;
+        height: 10px;
+        width: 100%;
+        max-width: 320px;
+        box-shadow: inset 0px 0px 0px 1px #c8c8cd;
+        border-radius: 50px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background: #409be9;
+        animation: progress-animation 0.2s ease-in-out;
+    }
+}
+
+@keyframes progress-animation {
+    0% {
+        width: 0%;
+        width: 10%;
+    }
+    40% {
+        width: 30%;
+    }
+    50% {
+        width: 60%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Responsive styles using media queries */
+@media only screen and (max-width: 768px) {
+    .coin-item {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .coin-item {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .coin-item {
+        width: 48%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .coin-item {
+        width: 32%;
+    }
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 400px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.modal-close-btn {
+    background-color: #ccc;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.modal-close-btn:hover {
+    background-color: #999;
+}
+
+.modal .selected-coins-list {
+    list-style: none;
+    padding: 0;
+}
+
+.modal .selected-coins-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.modal .toggle-btn {
+    width: 60px;
+    height: 30px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.modal .toggle-btn::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2.5px;
+    transition: transform 0.2s ease;
+}
+
+.modal .toggle-btn.active::before {
+    transform: translateX(30px);
+}
+
+.modal .toggle-btn.active {
+    background-color: #0b7fe4;
+}
+
+/* Mobile Design Adjustments */
+@media only screen and (max-width: 480px) {
+    .coin-item {
+        width: 100%;
+        padding: 30px;
+    }
+
+    .coin-item h2 {
+        font-size: 48px;
+    }
+
+    .coin-item p {
+        font-size: 36px;
+    }
+
+    .coin-item .more-info-btn {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    .coin-item .toggle-btn {
+        width: 70px;
+        height: 35px;
+        top: 30px;
+        right: 30px;
+    }
+
+    .coin-item .toggle-btn::before {
+        width: 35px;
+        height: 35px;
+        top: 3.75px;
+        left: 3.75px;
+    }
+
+    .modal .toggle-btn {
+        width: 80px;
+        height: 40px;
+    }
+
+    .modal .toggle-btn::before {
+        width: 40px;
+        height: 40px;
+        top: 3.5px;
+        left: 3.5px;
+    }
+}
